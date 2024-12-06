@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasmine's Pokédex</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Retro Game Style Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Jasmine's Pokédex</h1>
+        
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" id="pokemonInput" placeholder="Enter Pokémon name or ID">
+                <button id="searchButton" class="pokeball-button" title="Search"></button>
+            </div>
+            <div id="suggestionBox" class="suggestion-box hidden"></div>
+        </div>
+
+        <div id="notification" class="notification hidden"></div>
+
+        <div id="loading" class="hidden loading">
+            <div class="pokeball-loader"></div>
+        </div>
+
+        <div id="pokemonData" class="pokemon-data"></div>
+
+        <button id="moreInfoButton" class="hidden">More Info</button>
+
+        <div id="advancedPanel" class="advanced-panel hidden">
+            <button class="feature-button" data-feature="pokedex">Pokédex Entry</button>
+            <button class="feature-button" data-feature="evolution">Evolution Chain</button>
+            <button class="feature-button" data-feature="compare">Compare</button>
+            <button class="feature-button" data-feature="forms">Alternate Forms</button>
+            <button class="close-button">X</button>
+        </div>
+
+        <div id="featureOutput" class="feature-output hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

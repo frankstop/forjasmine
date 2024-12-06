@@ -1,0 +1,357 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffcb05; /* Pokémon brand yellow */
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 4px solid #333;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+}
+
+h1 {
+    color: #cc0000;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.search-section {
+    position: relative;
+}
+
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#pokemonInput {
+    padding: 10px;
+    width: 70%;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #eee;
+    font-family: inherit;
+}
+
+#pokemonInput:focus {
+    outline: none;
+    border-color: #cc0000;
+}
+
+.pokeball-button {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.pokeball-button::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, red 50%, white 50%);
+    border: 4px solid black;
+    border-radius: 50%;
+    position: relative;
+}
+
+.pokeball-button::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: white;
+    border: 3px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pokeball-button:hover {
+    transform: scale(1.1);
+}
+
+.suggestion-box {
+    background: #fff;
+    border: 2px solid #333;
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60px;
+    z-index: 10;
+    border-radius: 5px;
+    box-sizing: border-box;
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.suggestion-box .suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-box .suggestion:hover {
+    background-color: #f2f2f2;
+}
+
+.notification {
+    background-color: #ffcccc;
+    color: #660000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.loading {
+    margin: 20px 0;
+}
+
+.pokeball-loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, red 50%, white 50%);
+    border: 5px solid black;
+    position: relative;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+.pokeball-loader::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 3px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pokemon-data {
+    margin-top: 20px;
+}
+
+.pokemon-data img {
+    width: 150px;
+    height: 150px;
+}
+
+.pokemon-data h2 {
+    text-transform: capitalize;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.pokemon-data .types, 
+.pokemon-data .abilities, 
+.pokemon-data .stats {
+    margin: 10px 0;
+    text-align: left;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.types span, .abilities span {
+    display: inline-block;
+    background-color: #ffcc00;
+    padding: 3px 5px;
+    border-radius: 20px;
+    margin: 3px;
+    text-transform: capitalize;
+}
+
+.stats div {
+    margin: 5px 0;
+    text-transform: capitalize;
+    font-size: 12px;
+}
+
+/* More Info Button and Advanced Panel */
+#moreInfoButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 12px;
+    border: 2px solid #333;
+    background: #ffcc00;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.advanced-panel {
+    position: fixed; 
+    bottom: 20px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: 90%;
+    z-index: 999;
+}
+
+.feature-button {
+    background: #eee;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.feature-button:hover {
+    background: #ccffcc;
+}
+
+.close-button {
+    background: #ffcccc;
+    border: 2px solid #333;
+    border-radius: 50%;
+    width: 30px; 
+    height: 30px;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.feature-output {
+    margin-top: 20px;
+    border: 2px solid #333;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 12px;
+}
+
+/* Compare Section Styles */
+.compare-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.compare-column {
+    flex: 1 1 45%;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.compare-column h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.compare-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.compare-search input {
+    padding: 5px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 10px;
+    background: #eee;
+    width: 70%;
+    font-family: inherit;
+}
+
+.compare-search input:focus {
+    outline: none;
+    border-color: #cc0000;
+}
+
+.compare-search .pokeball-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Evolution chain images */
+.evolution-chain {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.evolution-chain img {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+.evolution-arrow {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Forms Grid */
+.forms-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.forms-grid .form-item {
+    text-align: center;
+}
+
+.forms-grid img {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    object-fit: contain;
+}
